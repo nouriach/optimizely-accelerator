@@ -6,13 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Blocks\Base\" />
-    <Folder Include="Blocks\Interfaces\" />
     <Folder Include="Blocks\Components\" />
-    <Folder Include="Global\" />
-    <Folder Include="Pages\Base\" />
     <Folder Include="Pages\Components\" />
-    <Folder Include="Pages\Interfaces\" />
   </ItemGroup>
 
 </Project>
