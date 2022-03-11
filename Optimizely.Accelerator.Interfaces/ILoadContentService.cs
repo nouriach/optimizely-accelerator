@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using EPiServer.Core;
+using Optimizely.Accelerator.Models.Base;
 
 namespace Optimizely.Accelerator.Interfaces
 {
