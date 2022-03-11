@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Optimizely.Accelerator.Mediator.Extensions;
+using System.Reflection;
 
 namespace Optimizely.Accelerator
 {
@@ -27,6 +29,7 @@ namespace Optimizely.Accelerator
             services.AddCms()
                 .AddCmsAspNetIdentity<ApplicationUser>();
 
+            services.AddProjectMediator();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/util/Login";

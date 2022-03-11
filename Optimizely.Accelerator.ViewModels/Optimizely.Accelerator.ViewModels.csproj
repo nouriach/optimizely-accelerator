@@ -10,4 +10,8 @@
     <Folder Include="Pages\Components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EPiServer.CMS" Version="12.3.2" />
+  </ItemGroup>
+
 </Project>
