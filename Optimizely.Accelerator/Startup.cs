@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Optimizely.Accelerator.Mediator.Extensions;
+using Optimizely.Mediator.Extensions;
 using System.Reflection;
 
 namespace Optimizely.Accelerator

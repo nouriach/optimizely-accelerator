@@ -1,6 +1,6 @@
 ﻿using EPiServer.Core;
 using EPiServer.Web.Mvc;
-using Optimizely.Accelerator.Interfaces;
+using Optimizely.Interfaces;
 using System;
 
 namespace Optimizely.Accelerator.Web.Controllers.Base

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Optimizely.Web</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EPiServer.CMS" Version="12.*" />
+    <Folder Include="Controllers\Blocks\" />
+    <Folder Include="Controllers\Pages\" />
+    <Folder Include="Initialization\" />
+    <Folder Include="Views\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Optimizely.Interfaces\Optimizely.Interfaces.csproj" />
+    <ProjectReference Include="..\Optimizely.Mediator\Optimizely.Mediator.csproj" />
+  </ItemGroup>
+</Project>
