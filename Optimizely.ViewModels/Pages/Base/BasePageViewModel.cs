@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Optimizely.ViewModels.Pages.Interfaces;
 
 namespace Optimizely.ViewModels.Pages.Base
 {
-    public class BasePageViewModel
+    public class BasePageViewModel : ISitePageViewModel
     {
     }
 }

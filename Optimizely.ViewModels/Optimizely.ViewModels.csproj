@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Blocks\Components\" />
-    <Folder Include="Pages\Components\" />
   </ItemGroup>
 
 </Project>
