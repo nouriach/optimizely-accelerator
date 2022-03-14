@@ -11,11 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPiServer.Framework" Version="12.4.1" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Optimizely.Core\Optimizely.Core.csproj" />
     <ProjectReference Include="..\Optimizely.Services\Optimizely.Services.csproj" />
     <ProjectReference Include="..\Optimizely.ViewModels\Optimizely.ViewModels.csproj" />
   </ItemGroup>
