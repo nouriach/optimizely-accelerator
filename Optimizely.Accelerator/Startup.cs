@@ -1,10 +1,13 @@
 ﻿using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Web;
 using EPiServer.Web.Routing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Optimizely.Mediator.Extensions;
+using Optimizely.Web.Initialization;
+using System;
 using System.Reflection;
 
 namespace Optimizely.Accelerator
@@ -29,14 +32,14 @@ namespace Optimizely.Accelerator
             services.AddCms()
                 .AddCmsAspNetIdentity<ApplicationUser>();
 
+            AddFirstRequestInitializers(services);
+
             services.AddProjectMediator();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/util/Login";
             });
         }
-
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -54,6 +57,10 @@ namespace Optimizely.Accelerator
             {
                 endpoints.MapContent();
             });
+        }
+        private void AddFirstRequestInitializers(IServiceCollection services)
+        {
+            services.AddSingleton<IFirstRequestInitializer, UserInstaller>();
         }
     }
 }
