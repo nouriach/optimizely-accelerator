@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Blocks\" />
+    <PackageReference Include="EPiServer.CMS" Version="12.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPiServer.CMS" Version="12.3.2" />
+    <ProjectReference Include="..\Dept.Core\Dept.Core.csproj" />
   </ItemGroup>
 
 </Project>
