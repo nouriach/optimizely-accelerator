@@ -1,5 +1,5 @@
 ﻿
-namespace Optimizely.Accelerator.ViewModels.Blocks.Interfaces
+namespace Optimizely.ViewModels.Blocks.Interfaces
 {
     public interface ISiteBlockViewModel
     {

@@ -7,7 +7,6 @@ namespace Optimizely.ViewModels.Global.Components
         // add component name constants
         public string Name { get; set; }
         public string Url { get; set; }
-        public string LinkIcon { get; set; }
         public string Target { get; set; }
     }
 }
