@@ -25,7 +25,6 @@ namespace Optimizely.Web.Controllers.Pages
             }
             catch (Exception e)
             {
-
                 _logger.LogError(nameof(Index), e, "Error BasicContentPageController getting BasicContentPageViewModel");
             }
             return View();
