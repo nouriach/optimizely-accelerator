@@ -1,16 +1,19 @@
-﻿using EPiServer.Core;
-using MediatR;
+﻿using MediatR;
+using Optimizely.Models.Base;
 using Optimizely.ViewModels.Blocks.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Optimizely.Mediator.Requests.Block
 {
-    public class BlockRequest<T> : IRequest<ISiteBlockViewModel> where T : BlockData
+    public static class BlockRequest
+    {
+        public static BlockRequest<T> Create<T>(T block, CultureInfo language) where T : SiteBlockData
+        {
+            return new BlockRequest<T>(block, language);
+        }
+    }
+
+    public class BlockRequest<T> : IRequest<ISiteBlockViewModel> where T : SiteBlockData
     {
         public BlockRequest(T block, CultureInfo language)
         {

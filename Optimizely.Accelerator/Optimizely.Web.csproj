@@ -10,7 +10,6 @@
     <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.3.2" />
     <PackageReference Include="EPiServer.Framework" Version="12.4.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <Folder Include="Controllers\Blocks\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>

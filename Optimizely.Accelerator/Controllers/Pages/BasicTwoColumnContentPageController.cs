@@ -13,7 +13,7 @@ namespace Optimizely.Web.Controllers.Pages
 {
     public class BasicTwoColumnContentPageController : BasePageController<BasicTwoColumnContentPage>
     {
-        public BasicTwoColumnContentPageController(IMediator mediator, ILogger logger) : base(mediator, logger) {} 
+        public BasicTwoColumnContentPageController(IMediator mediator, ILogger<BasicTwoColumnContentPageController> logger) : base(mediator, logger) {} 
         public async Task<ActionResult> Index(BasicTwoColumnContentPage currentPage, CancellationToken cancellationToken)
         {
             var model = new BasicTwoColumnContentPageViewModel();

@@ -13,7 +13,7 @@ namespace Optimizely.Web.Controllers.Pages
 {
     public class BasicContentPageController : BasePageController<BasicContentPage>
     {
-        public BasicContentPageController(IMediator mediator, ILogger logger) : base(mediator, logger){}
+        public BasicContentPageController(IMediator mediator, ILogger<BasicContentPageController> logger) : base(mediator, logger){}
 
         public async Task<ActionResult> Index(BasicContentPage currentPage, CancellationToken cancellationToken)
         {
@@ -27,7 +27,7 @@ namespace Optimizely.Web.Controllers.Pages
             {
                 _logger.LogError(nameof(Index), e, "Error BasicContentPageController getting BasicContentPageViewModel");
             }
-            return View();
+            return View(model);
         }
     }
 }
