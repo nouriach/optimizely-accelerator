@@ -1,17 +1,22 @@
-﻿using EPiServer.Core;
+﻿using EPiServer;
+using EPiServer.Core;
 using Optimizely.Interfaces;
 using Optimizely.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Optimizely.Services
 {
     public class LoadContentService : ILoadContentService
     {
+        private readonly IContentLoader _contentLoader;
+
+        public LoadContentService(IContentLoader contentLoader)
+        {
+            _contentLoader = contentLoader ?? throw new ArgumentNullException(nameof(contentLoader));
+        }
         public IEnumerable<T> LoadAllBlocks<T>() where T : SiteBlockData
         {
             throw new NotImplementedException();
@@ -24,12 +29,18 @@ namespace Optimizely.Services
 
         public T LoadBlock<T>(ContentReference contentReference, CultureInfo language) where T : IContentData
         {
-            throw new NotImplementedException();
+            if (contentReference == null) return default(T);
+
+            return _contentLoader.Get<T>(contentReference, language);
         }
 
         public IList<SiteBlockData> LoadBlockDataFromContentReferences(IList<ContentReference> references, CultureInfo language)
         {
-            throw new NotImplementedException();
+            if (references == null) return default;
+
+            return references
+                .Select(reference => LoadBlock<SiteBlockData>(reference, language))
+                .Where(block => block != null).ToList();
         }
 
         public IList<T> LoadBlockDataFromContentReferences<T>(IList<ContentReference> references, CultureInfo language)
