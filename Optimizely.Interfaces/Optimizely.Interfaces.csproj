@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="EPiServer.CMS" Version="12.3.2" />
+    <PackageReference Include="EPiServer.Framework" Version="12.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Optimizely.Models\Optimizely.Models.csproj" />
+    <ProjectReference Include="..\Optimizely.ViewModels\Optimizely.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
