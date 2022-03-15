@@ -7,5 +7,6 @@ namespace Optimizely.Interfaces
     public interface IUrlHelper
     {
         string GetTidyUrl(Url url);
+        string GetTidyUrl(IContent content);
     }
 }
