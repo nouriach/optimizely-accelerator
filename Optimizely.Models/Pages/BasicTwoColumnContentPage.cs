@@ -36,7 +36,7 @@ namespace Optimizely.Models.Pages
             Name = "Main Content Region for the Left Column",
             Description = "###",
             GroupName = SystemTabNames.Content,
-            Order = 300)]
+            Order = 400)]
         public virtual ContentArea LeftColumn { get; set; }
     }
 }

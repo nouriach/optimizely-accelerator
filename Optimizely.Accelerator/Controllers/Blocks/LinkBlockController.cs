@@ -27,8 +27,7 @@ namespace Optimizely.Web.Controllers.Blocks
 
             try
             {
-                var request = BlockRequest.Create(currentContent, currentContent.GetCultureInfoFromBlockLanguage());
-                model = await _mediator.Send(request, default)
+                model = await _mediator.Send(BlockRequest.Create(currentContent, currentContent.GetCultureInfoFromBlockLanguage()), default)
                     as LinkBlockViewModel;
             }
             catch (Exception e)
@@ -37,7 +36,7 @@ namespace Optimizely.Web.Controllers.Blocks
                 _logger.LogError(nameof(Index), e, "Error LinkBlockController getting LinkBlockViewModel");
             }
 
-            return View(model);
+            return View("~/Views/Shared/JsonDisplay.cshtml", model);
         }
     }
 }
