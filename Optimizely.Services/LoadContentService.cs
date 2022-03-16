@@ -45,7 +45,7 @@ namespace Optimizely.Services
 
         public IList<T> LoadBlockDataFromContentReferences<T>(IList<ContentReference> references, CultureInfo language)
         {
-            throw new NotImplementedException();
+            return LoadBlockDataFromContentReferences(references, language)?.Cast<T>().ToList();
         }
 
         public List<IContent> LoadContent(IEnumerable<ContentAreaItem> contentAreaItems)
