@@ -1,8 +1,7 @@
 ﻿@using Newtonsoft.Json.Serialization
 @model Optimizely.ViewModels.Blocks.Interfaces.ISiteBlockViewModel;
 
-<h1>Json Display</h1>
-
+<h1>@Model?.ComponentName</h1>
 @try
 {
     string json = JsonConvert.SerializeObject(Model);
@@ -10,7 +9,7 @@
 }
 catch (Exception e)
 {
-    @*<p>Error rendering Component : @Model?.ComponentName</p>*@
+    <p>Error rendering Component : @Model?.ComponentName</p>
     <pre>@e.Message</pre>
     <pre>@e.StackTrace</pre>
     <pre>@Html.Raw(JsonConvert.SerializeObject(Model))</pre>
