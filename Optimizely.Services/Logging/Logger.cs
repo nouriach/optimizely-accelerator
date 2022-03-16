@@ -3,7 +3,7 @@ using System;
 
 namespace Optimizely.Services.Logging
 {
-    public class Logger<T> : ILogger<T> where T : class
+    public class Logger<T> : IProjectLogger<T> where T : class
     {
         public void LogCritical(string functionName, string message, params object[] args)
         {

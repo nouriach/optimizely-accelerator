@@ -13,7 +13,7 @@ namespace Optimizely.Web.Controllers.Pages
 {
     public class HomepageController : BasePageController<Homepage>
     {
-        public HomepageController(IMediator mediator, ILogger<HomepageController> logger) : base(mediator, logger){}
+        public HomepageController(IMediator mediator, IProjectLogger<HomepageController> logger) : base(mediator, logger){}
         public async Task<ActionResult> Index(Homepage currentPage, CancellationToken cancellationToken)
         {
             var model = new HomepageViewModel();

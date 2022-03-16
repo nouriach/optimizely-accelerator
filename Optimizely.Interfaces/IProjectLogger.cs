@@ -13,7 +13,7 @@ namespace Optimizely.Interfaces
         void LogWarning(string functionName, string message, params object[] args);
     }
 
-    public interface ILogger<T> : ILogger where T : class
+    public interface IProjectLogger<T> : ILogger where T : class
     {
     }
 }
