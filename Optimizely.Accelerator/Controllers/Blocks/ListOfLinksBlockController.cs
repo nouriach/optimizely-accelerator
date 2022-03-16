@@ -11,29 +11,30 @@ using System.Threading.Tasks;
 
 namespace Optimizely.Web.Controllers.Blocks
 {
-    public class LinkBlockController : AsyncBlockComponent<LinkBlock>
+    public class ListOfLinksBlockController : AsyncBlockComponent<ListOfLinksBlock>
     {
         private readonly IMediator _mediator;
-        private readonly IProjectLogger<LinkBlockController> _logger;
+        private readonly IProjectLogger<ListOfLinksBlockController> _logger;
 
-        public LinkBlockController(IMediator mediator, IProjectLogger<LinkBlockController> logger)
+        public ListOfLinksBlockController(IMediator mediator, IProjectLogger<ListOfLinksBlockController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
-        protected async override Task<IViewComponentResult> InvokeComponentAsync(LinkBlock currentContent)
+
+        protected async override Task<IViewComponentResult> InvokeComponentAsync(ListOfLinksBlock currentContent)
         {
-            var model = new LinkBlockViewModel();
+            var model = new ListOfLinksBlockViewModel();
 
             try
             {
                 model = await _mediator.Send(BlockRequest.Create(currentContent, currentContent.GetCultureInfoFromBlockLanguage()), default)
-                    as LinkBlockViewModel;
+                    as ListOfLinksBlockViewModel;
             }
             catch (Exception e)
             {
 
-                _logger.LogError(nameof(Index), e, "Error LinkBlockController getting LinkBlockViewModel");
+                _logger.LogError(nameof(Index), e, "Error ListOfLinksBlockController getting ListOfLinksBlockViewModel");
             }
 
             return View("~/Views/Shared/JsonDisplay.cshtml", model);

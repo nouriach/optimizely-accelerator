@@ -7,35 +7,35 @@ using Optimizely.Mediator.Requests.Block;
 using Optimizely.Models.Blocks.Global;
 using Optimizely.ViewModels.Global.Components;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optimizely.Web.Controllers.Blocks
 {
-    public class LinkBlockController : AsyncBlockComponent<LinkBlock>
+    public class FooterBlockController : AsyncBlockComponent<FooterBlock>
     {
         private readonly IMediator _mediator;
-        private readonly IProjectLogger<LinkBlockController> _logger;
+        private readonly IProjectLogger<FooterBlockController> _logger;
 
-        public LinkBlockController(IMediator mediator, IProjectLogger<LinkBlockController> logger)
+        public FooterBlockController(IMediator mediator, IProjectLogger<FooterBlockController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
-        protected async override Task<IViewComponentResult> InvokeComponentAsync(LinkBlock currentContent)
-        {
-            var model = new LinkBlockViewModel();
 
+        protected async override Task<IViewComponentResult> InvokeComponentAsync(FooterBlock currentContent)
+        {
+            var model = new FooterViewModel();
             try
             {
                 model = await _mediator.Send(BlockRequest.Create(currentContent, currentContent.GetCultureInfoFromBlockLanguage()), default)
-                    as LinkBlockViewModel;
+                    as FooterViewModel;
             }
             catch (Exception e)
             {
-
-                _logger.LogError(nameof(Index), e, "Error LinkBlockController getting LinkBlockViewModel");
+                _logger.LogError(nameof(Index), e, "ErrorFooterBlockController getting FooterViewModel");
             }
-
             return View("~/Views/Shared/JsonDisplay.cshtml", model);
         }
     }

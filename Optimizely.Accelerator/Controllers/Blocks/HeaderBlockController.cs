@@ -11,31 +11,28 @@ using System.Threading.Tasks;
 
 namespace Optimizely.Web.Controllers.Blocks
 {
-    public class LinkBlockController : AsyncBlockComponent<LinkBlock>
+    public class HeaderBlockController : AsyncBlockComponent<HeaderBlock>
     {
         private readonly IMediator _mediator;
-        private readonly IProjectLogger<LinkBlockController> _logger;
+        private readonly IProjectLogger<HeaderBlockController> _logger;
 
-        public LinkBlockController(IMediator mediator, IProjectLogger<LinkBlockController> logger)
+        public HeaderBlockController(IMediator mediator, IProjectLogger<HeaderBlockController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
-        protected async override Task<IViewComponentResult> InvokeComponentAsync(LinkBlock currentContent)
+        protected async override Task<IViewComponentResult> InvokeComponentAsync(HeaderBlock currentContent)
         {
-            var model = new LinkBlockViewModel();
-
+            var model = new HeaderViewModel();
             try
             {
                 model = await _mediator.Send(BlockRequest.Create(currentContent, currentContent.GetCultureInfoFromBlockLanguage()), default)
-                    as LinkBlockViewModel;
+                    as HeaderViewModel;
             }
             catch (Exception e)
             {
-
-                _logger.LogError(nameof(Index), e, "Error LinkBlockController getting LinkBlockViewModel");
+                _logger.LogError(nameof(Index), e, "Error HeaderBlockController getting HeaderViewModel");
             }
-
             return View("~/Views/Shared/JsonDisplay.cshtml", model);
         }
     }
