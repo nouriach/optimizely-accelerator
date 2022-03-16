@@ -4,5 +4,6 @@ namespace Optimizely.ViewModels.Blocks.Base
 {
     public class BaseBlockViewModel : ISiteBlockViewModel
     {
+        public virtual string ComponentName { get; set; }
     }
 }

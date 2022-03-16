@@ -9,4 +9,8 @@
     <PackageReference Include="EPiServer.Framework" Version="12.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dept.Core\Dept.Core.csproj" />
+  </ItemGroup>
+
 </Project>
