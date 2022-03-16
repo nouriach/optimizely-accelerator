@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Optimizely.Interfaces;
+using Optimizely.Services.Content;
 using Optimizely.Services.Logging;
 
 namespace Optimizely.Services.Extensions
@@ -13,6 +14,8 @@ namespace Optimizely.Services.Extensions
 
             services.AddTransient(typeof(ILogger<>), typeof(Logger<>));
             services.AddTransient(typeof(ICorrelationIdService), typeof(CorrelationIdService));
+
+            services.AddTransient(typeof(IUrlHelper), typeof(UrlHelper));
         }
     }
 }
