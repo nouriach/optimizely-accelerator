@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Optimizely.Mediator.Requests.Block;
 using Optimizely.Mediator.Requests.Page;
 using Optimizely.Models.Base;
 using Optimizely.ViewModels.Pages.Base;
@@ -20,8 +21,8 @@ namespace Optimizely.Mediator.Handlers.Page.Base
         {
             return new BasePageViewModel
             {
-                // Header
-                // Footer
+                Header = await _mediator.Send(new HeaderRequest(request?.Language), cancellationToken),
+                Footer = await _mediator.Send(new FooterRequest(request?.Language, request?.Page), cancellationToken),
                 // Seo Data
             };
         }

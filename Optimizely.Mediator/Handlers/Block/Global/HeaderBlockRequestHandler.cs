@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Optimizely.Interfaces;
 using Optimizely.Mediator.Requests.Block;
 using Optimizely.Models.Blocks.Global;
 using Optimizely.ViewModels.Blocks.Interfaces;
@@ -8,15 +9,21 @@ using System.Threading.Tasks;
 
 namespace Optimizely.Mediator.Handlers.Block.Global
 {
-    public class HeaderBlockRequestHandler : IRequestHandler<BlockRequest<HeaderBlock>, ISiteBlockViewModel>
+    public class HeaderBlockRequestHandler : IRequestHandler<HeaderRequest, HeaderViewModel>
     {
-        public async Task<ISiteBlockViewModel> Handle(BlockRequest<HeaderBlock> request, CancellationToken cancellationToken)
+        private readonly IConfigService _configService;
+
+        public HeaderBlockRequestHandler(IConfigService configService)
         {
-            var block = request?.Block;
+            _configService = configService;
+        }
+        public async Task<HeaderViewModel> Handle(HeaderRequest request, CancellationToken cancellationToken)
+        {
+            var headerBlock = _configService?.Header;
 
             return new HeaderViewModel
             {
-                Title = block?.Title
+                Title = headerBlock?.Title
             };
         }
     }
