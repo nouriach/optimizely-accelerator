@@ -1,4 +1,4 @@
-# Optimizely Accelerator Project
+# Optimizely Accelerator Project 
 The aim of this solution is to provide a base project layer that all future Optimziely projects can extend on with features and requirements
 unique to the client brief.
 
@@ -12,7 +12,7 @@ The approach centred on reviewing the following projects and identifying pertine
 My solution adovcates clean architecture and separates the codebase into individual layers of concern. Moreover, all endpoints adopt the Mediator pattern by isolating all commands and queries into unique slices of work.
 
 ***
-## Presentation Layer
+## Presentation Layer :satellite:
 The Presentation layer is responsible for the rendering of components by holding the Controllers, View Models and Views.
 
 ### Optimizely.Web
@@ -65,7 +65,7 @@ catch (Exception e)
 
 ```
 
-### Optimizely.ViewModels
+### Optimizely.ViewModels :mag_right:
 All View Models, whether they are Blocks or Pages, inherit from their respective Base View Model. This allows for any properties that persist against all of the respective types can implement the same code without having to duplicate it in every instance. 
 
 For now, the Block base model holds a field called `ComponentName`. The `ComponentName` field will uses a constant value from the static `ComponentNameConstants` file to set a name for the View Model, which will then be posted along with the other values to the frontend.
@@ -80,7 +80,7 @@ public class BasePageViewModel : ISitePageViewModel
 }
 ```
 
-## Application Layer
+## Application Layer :postbox:
 The Application Layer holds all of the Request, Response & Handler logic. All Block and Page requests are managed in relevant folders. 
 
 ### Optimizely.Mediator
@@ -89,7 +89,7 @@ The Page Requests all inherit from a `BasePageRequestHandler` that manages the v
 var baseModel = await base.GetBasePageData(request, cancellationToken);
 ```
 
-## Framework Layer
+## Framework Layer :nut_and_bolt:
 The Framework layer hosts all of the Services that are required by the Mediator Handlers to organise the data before it is returned in the response model. The below Services were brought into the project as they represent commont requirements that most projects will have.
 
 ### Optimizely.Interfaces & Optimizely.Services
@@ -107,7 +107,7 @@ At present, the project has the following Interfaces:
 
 `IUrlHelper` helps you work and build out URLs
 
-## Domain Layer
+## Domain Layer :ledger:
 ### Dept.Core
 A layer that holds business rules that need to persist across the project that are unique to Dept. Examples being `Attributes`, site `Constants` & `SelectionFactories`.
 
