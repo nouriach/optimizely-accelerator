@@ -65,7 +65,7 @@ catch (Exception e)
 
 ```
 
-### Optimizely.ViewModels :mag_right:
+### Optimizely.ViewModels
 All View Models, whether they are Blocks or Pages, inherit from their respective Base View Model. This allows for any properties that persist against all of the respective types can implement the same code without having to duplicate it in every instance. 
 
 For now, the Block base model holds a field called `ComponentName`. The `ComponentName` field will uses a constant value from the static `ComponentNameConstants` file to set a name for the View Model, which will then be posted along with the other values to the frontend.
@@ -118,3 +118,24 @@ A layer that holds business rules that need to persist across of the Optimizely 
 The Optimizely components are stored in this layer and help define what is available to a Content Editor in the CMS. Like with View Models, each component inherits from a base class that can be extended upon to include fields that need to persist across all Blocks or Pages where relevant. 
 
 There is also a `ConfigPage` which, like other Page components, can be created in the CMS. However, the `ConfigPage` doesn't get rendered onto the frontend but rather used to establish a set of values that can be accessed by other components and are required to be global. 
+
+At present the solution has three common Page templates and six common Blocks
+
+#### Page components
+`BasicContentPage` contains a single `ContentArea` suitable for full-width displays
+
+`BasicTwoColumnContentPage` contains a `LeftColumn` and a `RightColumn` field which are both `ContentArea` properties, allowing the Content Editor to build a page with two columns of content
+
+`Homepage` is a simple Page that can be used to build out a Homepage
+#### Block components
+`HeaderBlock`
+
+`FooterBlock`
+
+`LinkBlock` to utilise as a simple linked CTA 
+
+`ListOfLinksBlock` can contain a number of links
+
+`ImageBlock` can hold an Image file
+
+`NavigationBlock` a simple block that holds the current page and a link back to the homepage 
