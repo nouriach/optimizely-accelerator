@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace Optimizely.Services
+namespace Optimizely.Services.Content
 {
     public class LoadContentService : ILoadContentService
     {

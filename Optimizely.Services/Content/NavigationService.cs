@@ -5,7 +5,7 @@ using Optimizely.Models.Base;
 using Optimizely.ViewModels.Blocks.Components;
 using System.Linq;
 
-namespace Optimizely.Services
+namespace Optimizely.Services.Content
 {
     public class NavigationService : INavigationService
     {
