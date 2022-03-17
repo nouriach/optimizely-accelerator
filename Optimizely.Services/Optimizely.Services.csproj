@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CorrelationId" Version="3.0.1" />
     <PackageReference Include="EPiServer.CMS" Version="12.3.2" />
     <PackageReference Include="EPiServer.Framework" Version="12.4.1" />
   </ItemGroup>

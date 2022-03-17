@@ -6,14 +6,11 @@ namespace Optimizely.Services.Logging
 {
     public class ProjectLogger<T> : IProjectLogger<T> where T : class
     {
-        //private readonly ICorrelationIdService _correlationIdService;
         private readonly Microsoft.Extensions.Logging.ILogger _logger;
 
-        public ProjectLogger(ILogger<T> logger,
-            ICorrelationIdService correlationIdService)
+        public ProjectLogger(ILogger<T> logger)
         {
             _logger = logger;
-            //_correlationIdService = correlationIdService;
         }
         public void LogCritical(string functionName, string message, params object[] args)
         {
@@ -54,7 +51,6 @@ namespace Optimizely.Services.Logging
             var objectName = $"Type: {typeof(T).FullName}";
             functionName = $"Function: {functionName}";
             message = $"Message: {message}";
-            // var correlationId = _correlationIdService.GetCorrelationId();
 
             return $"ObjectName : {objectName} - FunctionName : {functionName} - Message : {message}";
         }
