@@ -12,10 +12,13 @@ namespace Optimizely.Services.Extensions
             services.AddTransient<ILoadContentService, LoadContentService>();
             services.AddTransient<INavigationService, NavigationService>();
 
-            services.AddTransient(typeof(IProjectLogger<>), typeof(Logger<>));
+            services.AddTransient(typeof(IProjectLogger<>), typeof(ProjectLogger<>));
             services.AddTransient(typeof(ICorrelationIdService), typeof(CorrelationIdService));
 
             services.AddTransient(typeof(IUrlHelper), typeof(UrlHelper));
+            services.AddTransient(typeof(IConfigService), typeof(ConfigService));
+            services.AddTransient(typeof(ISiteSettings), typeof(SiteSettings));
+
         }
     }
 }
