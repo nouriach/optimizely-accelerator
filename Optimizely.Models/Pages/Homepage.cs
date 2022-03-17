@@ -2,6 +2,7 @@
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using Optimizely.Models.Base;
+using Optimizely.Models.Config;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -18,5 +19,11 @@ namespace Optimizely.Models.Pages
             Order = 100)]
         public virtual string Title { get; set; }
 
+        [Display(Name = "Config Page",
+            Description = "Link to the Configuration Page.",
+            GroupName = SystemTabNames.Settings,
+            Order = 200)]
+        [AllowedTypes(typeof(ConfigPage))]
+        public virtual ContentReference ConfigPage { get; set; }
     }
 }
