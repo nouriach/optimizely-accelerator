@@ -1,5 +1,9 @@
 ﻿@model Optimizely.ViewModels.Pages.Components.BasicTwoColumnContentPageViewModel
-
+<div>
+    @{
+        await Html.RenderPartialAsync("JsonDisplay", Model.Header);
+    }
+</div>
 <div>
     @Html.PropertyFor(x => x.Title)
 </div>
@@ -11,4 +15,9 @@
 </div>
 <div>
     @Html.PropertyFor(x => x.RightColumn)
+</div>
+<div>
+    @{
+        await Html.RenderPartialAsync("JsonDisplay", Model.Footer);
+    }
 </div>

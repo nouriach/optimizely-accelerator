@@ -8,7 +8,8 @@ namespace Optimizely.ViewModels.Pages.Components
 
         public HomepageViewModel(BasePageViewModel baseModel)
         {
-            // set BasePageViewModel values here
+            Header = baseModel.Header;
+            Footer = baseModel.Footer;
         }
 
         public string Title { get; set; }

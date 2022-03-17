@@ -8,7 +8,8 @@ namespace Optimizely.ViewModels.Pages.Components
         public BasicTwoColumnContentPageViewModel(){}
         public BasicTwoColumnContentPageViewModel(BasePageViewModel baseModel)
         {
-            // set baseModel values
+            Header = baseModel.Header;
+            Footer = baseModel.Footer;
         }
 
         public string Title { get; set; }
